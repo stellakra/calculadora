@@ -1,47 +1,63 @@
-let pantalla = document.getElementById('pantalla');
-let operacion = '';
-let resultadoMostrado = false;
+let quantity = 1;
+const unitPrice = 799;
 
-function agregarNumero(numero) {
-    if (pantalla.textContent === '0' || resultadoMostrado) {
-        pantalla.textContent = numero;
-        resultadoMostrado = false;
-    } else {
-        pantalla.textContent += numero;
-    }
+//dom
+const quantityDisplay = document.getElementById('cantidad');
+const totalPriceDisplay = document.getElementById('total-precio');
+const decreaseBtn = document.getElementById('menos-btn');
+const increaseBtn = document.getElementById('mas-btn'); 
+const addToCartBtn = document.getElementById('add-to-cart');
+const buyNowBtn = document.getElementById('comprar-ahora');
+
+//inicio app
+document.addEventListener('DOMContentLoaded', function () {
+    // Configurar eventos
+    setupEventListeners();
+    //calcula/muestra total inicial
+    updateTotalPrice();
+});
+
+//eventos listeners
+function setupEventListeners() {
+    //btn cantidad
+    decreaseBtn.addEventListener('click', decreaseQuantity);
+    increaseBtn.addEventListener('click', increaseQuantity);
+    
+    //botones de accion 
+    addToCartBtn.addEventListener('click', addToCart); 
+    buyNowBtn.addEventListener('click', buyNow);
 }
 
-function agregarOperador(op) {
-    if (pantalla.textContent !== '0') {
-        pantalla.textContent += ' ' + op + ' ';
-        resultadoMostrado = false;
+//disminuir cantidad
+function decreaseQuantity() {
+    if (quantity > 1) { 
+        quantity--;
+        updateQuantityDisplay();
+        updateTotalPrice();
     }
 }
-
-function calcular() {
-    try {
-        // x equivale *
-        let expresion = pantalla.textContent.replace('×', '*');
-        let resultado = eval(expresion);
-        pantalla.textContent = resultado;
-        resultadoMostrado = true;
-    } catch (error) {
-        pantalla.textContent = 'Error';
-        resultadoMostrado = true;
-    }
+//aumentar
+function increaseQuantity() {
+    quantity++;
+    updateQuantityDisplay();
+    updateTotalPrice();
 }
-
-function limpiar() { 
-    pantalla.textContent = '0';
-    operacion = '';
-    resultadoMostrado = false;
+//actualizar cantidad
+function updateQuantityDisplay() {
+    quantityDisplay.textContent = quantity;
 }
-
-function borrar() {
-    if (pantalla.textContent.length > 1) {
-        pantalla.textContent = pantalla.textContent.slice(0, -1);
-    } else {
-        pantalla.textContent = '0';
-    }
-    resultadoMostrado = false;
+//actualiza el precio total
+function updateTotalPrice() {
+    const totalPrice = unitPrice * quantity;
+    totalPriceDisplay.textContent = `$${totalPrice}USD`; 
+}
+// Agregar al carrito
+function addToCart() { // Corregido: era 'addTocart'
+    const totalPrice = unitPrice * quantity;
+    alert(`.𖥔 ݁ ˖๋ ࣭ ⭑𝙰𝚐𝚛𝚎𝚐𝚊𝚍𝚘 𝚊𝚕 𝚌𝚊𝚛𝚛𝚒𝚝𝚘.ᐟ.ᐟ`);
+}
+// Comprar ahora
+function buyNow() {
+    const totalPrice = unitPrice * quantity;
+    alert(`.𖥔 ݁ ˖๋ ࣭ ⭑𝙲𝚘𝚖𝚙𝚛𝚊 𝚛𝚎𝚊𝚕𝚒𝚣𝚊𝚍𝚊.ᐟ.ᐟ`);
 }

@@ -4,39 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>calculadora</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <title>actividad 3</title>
 </head>
 
 <body>
-    <div class="calculadora">
-        <div class="pantalla" id="pantalla">0</div>
-        <div class="botones">
-            <button class="limpiar" onclick="limpiar()">C</button>
-            <button class="operador" onclick="agregarOperador('/')">/</button>
-            <button class="operador" onclick="agregarOperador('*')">*</button>
-            <button class="operador" onclick="agregarOperador('-')">-</button>
-
-            <button onclick="agregarNumero('7')">7</button>
-            <button onclick="agregarNumero('8')">8</button>
-            <button onclick="agregarNumero('9')">9</button>
-            <button class="operador" onclick="agregarOperador('+')">+</button>
-
-            <button onclick="agregarNumero('4')">4</button>
-            <button onclick="agregarNumero('5')">5</button>
-            <button onclick="agregarNumero('6')">6</button>
-            <button onclick="agregarNumero('.')">.</button>
-
-            <button onclick="agregarNumero('1')">1</button>
-            <button onclick="agregarNumero('2')">2</button>
-            <button onclick="agregarNumero('3')">3</button>
-            <button class="igual" onclick="calcular()">=</button>
-
-            <button onclick="agregarNumero('0')" style="grid-column: span 2;">0</button>
-            <button onclick="borrar()">⌫</button>
+    <section class="hero">
+        <h1>Fursuit a la venta</h1>
+        <p>originalmente de @dokidoki_furrystudio en instagram <br> <a href="https://www.instagram.com/dokidoki_furrystudio">dokidoki_furrystudio</a></p>
+    </section>
+    <div class="container">
+        <div class="carta-producto">
+            <div class="img">
+                <img src="https://i.pinimg.com/1200x/43/68/b3/4368b37dfb6969d8a35803002679eb52.jpg" alt="fursuit-guro">
+            </div>
+            <div class="info-producto">
+                <h1 class="titulo-producto">Murder Bunny Kig Fursuit</h1>
+            </div>
+            <p class="descripcion-producto">Cabeza de Traje fursut con diseño de conejo con pelaje blanco, detalles
+                rosados. Ojos grandes y brillantes, detalles goticos, romanticos y monstruosos</p>
+            <div class="cantidad">
+                <h3>Cantidad:</h3>
+                <div class="control-cantidad">
+                    <button class="cantidad-btn" id="menos-btn">-
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <span class="display-cantidad" id="cantidad">1</span>
+                    <button class="cantidad-btn" id="mas-btn">+
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="precio-info">
+                <div class="total-seccion">
+                    <span class="label-total">Total a pagar</span>
+                    <span class="total" id="total-precio">$799USD</span>
+                </div>
+            </div>
+            <div class="botones-accion">
+                <button class="btn-primario" id="add-to-cart">
+                    <i class="fas fa-shopping-cart"></i> Agregar al carrito
+                </button>
+                <button class="btn-secundario" id="comprar-ahora">
+                    <i class="fas fa-bolt"></i> Comprar ahora
+                </button>
+            </div>
         </div>
     </div>
-<script src="./assets/js/script.js"></script>
+
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
